@@ -37,7 +37,11 @@ ui <- fluidPage(
           br(),
           numericInput("GuessZ", "Enter a guess for the z-score", value = NULL),
           numericInput("GuessP", "Enter a guess for the p-score", value = NULL,
-                       min = 0, max = 1, step = 0.01)
+                       min = 0, max = 1, step = 0.01),
+          br(),
+          br(),
+          helpText(a(href="https://williamngiam.github.io", target ="_blank", "Written by William X. Q. Ngiam")),
+          helpText(a(href="https://github.com/WilliamNgiam/Z-scores-ShinyApp", target="_blank", "Get the code for this app"))
         ),
 
       # Show a plot of the generated distribution in the main panel
@@ -255,10 +259,6 @@ server <- function(input, output) {
   colnames = TRUE,
   striped = TRUE,
   bordered = TRUE)
-  
-  output$infoText <- renderText({
-    "Written by William X. Q. Ngiam"
-  })
 }
 
 shinyApp(ui = ui, server = server)
